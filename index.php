@@ -6,21 +6,27 @@ $appName = $config->appName;
 $baseUrl = getenv('APP_BASE_URL');
 
 $movies = [];
-if ($handle = opendir($symlink)) {
-    $blacklist = array('.', '..', 'somedir', 'somefile.php');
-    while (false !== ($folder = readdir($handle))) {
-        if (!in_array($folder, $blacklist)) {
-            $index = count($movies);
-            $json = file_get_contents($symlink . "/" . $folder . "/index.json");
-            if (file_exists($symlink . "/" . $folder . "/poster.jpg")) {
-                $movies[$index]['poster'] = $symlink . "/" . $folder . "/poster.jpg";
+if(is_dir($symlink)){
+    if ($handle = opendir($symlink)) {
+        $blacklist = array('.', '..', 'somedir', 'somefile.php');
+        while (false !== ($folder = readdir($handle))) {
+            if (!in_array($folder, $blacklist)) {
+                $index = count($movies);
+                $json = file_get_contents($symlink . "/" . $folder . "/index.json");
+                if (file_exists($symlink . "/" . $folder . "/poster.jpg")) {
+                    $movies[$index]['poster'] = $symlink . "/" . $folder . "/poster.jpg";
+                }
+                $movies[$index]['folder'] = $folder;
+                $movies[$index]['info'] = json_decode($json, true);
             }
-            $movies[$index]['folder'] = $folder;
-            $movies[$index]['info'] = json_decode($json, true);
         }
+        closedir($handle);
     }
-    closedir($handle);
+} else {
+    echo "<center><h4>can't open symlink, check your symlink configuration.</h4></center>";
+    // echo "<style>body {display: none;}center {display: block;}</style>";
 }
+
 ?>
 <!DOCTYPE html>
 <html>
