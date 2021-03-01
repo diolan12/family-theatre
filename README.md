@@ -93,7 +93,8 @@ Usage: `php app {command} {arguments}`
                           e.g. (php app serve port=8080)
 
 ## Additional tips:
-    To serve this application just run this command `php app serve addr={your.ip} port={your_port}`.
+To serve this application just run this command:
+    `php app serve addr={your.ip} port={your_port}`
 Make sure you already link the video directory first, otherwise it will return error.
 Replace the **your.ip** with your machine IP address and **your_port** with your desired unused port,
 You can use port 80 when apache/nginx is not running.
