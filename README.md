@@ -15,7 +15,9 @@
 3. Create a symlink inside this app installation.
     - windows: run cmd as admin > create symlink junction `mklink /J C:\LinkToFolder C:\Users\Name\OriginalFolder`.
     - [how to create a symlink](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/).
-4. Done.
+4. Open app.php with text editor of your choice (vscode, notepad++, sublime, vim, etc).
+5. Fill the app constants, then save it (documentation included).
+6. Done.
 
 # How to add movies and subtitles
 1. Make sure you already create a symlink to your video directory.
@@ -23,14 +25,29 @@
 3. Google for the movie poster art and download it with format of `.jpg` (optional but recommended), this will reduce load speed.
 4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
 5. Place your `.vtt` subtitle in the same directory next to your movie video.
-6. Edit **`movie_index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
-7. Fill the movie information (example included) then save it.
+6. If you have more than one subtitle, repeat **step number 4 and 5**.
+7. Edit **`movie_index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+8. Fill the movie information (example included) then save it.
+9. Rename **`movie_index.json`** to **`index.json`**.
+10. Done.
 
 # How to add serials and subtitles
 1. Make sure you already create a symlink to your video directory.
-2. Copy **serial_index.json** to your movie directory.
+2. Copy **`serial_index.json`** to your movie directory.
 3. Google for the serial poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
 4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
 5. Place your `.vtt` subtitle in the same directory next to your serial video.
-6. Edit **movie_index.json** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
-7. Fill the serial information (example included) then save it.
+6. If you have more than one subtitle, repeat **step number 4 and 5**.
+7. Edit **`serial_index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+8. Fill the serial information (example included) then save it.
+9. Rename **`serial_index.json`** to **`index.json`**.
+10. Done.
+
+# How to serve
+There are two ways to serve this app. first is using xampp server, second is using cmd to serve with php built-in server
+## Serve with xampp server
+1. Run xampp (windows 10 require run as administrator).
+2. 
+
+## Serve with php built-in server
+1. Run cmd/terminal as administrator.
