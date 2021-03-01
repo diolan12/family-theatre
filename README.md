@@ -47,7 +47,10 @@
 There are two ways to serve this app. first is using xampp server, second is using cmd to serve with php built-in server
 ## Serve with xampp server
 1. Run xampp (windows 10 require run as administrator).
-2. 
+2. Make sure your app settings in `app.php` is well configured.
+3. Prepare some popcorn and soda.
+4. Open your browser and type `http://localhost/{your installation folder}`, hit enter.
+5. Enjoy.
 
 ## Serve with php built-in server
 1. Run cmd/terminal as administrator.
