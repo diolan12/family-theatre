@@ -10,7 +10,7 @@ $appName = "My Theatre";
 * e.g. your installation directory is C:\xampp\htdocs\videos
 * you can fill it to "videos"
 */
-$path = "videos";
+$path = "/videos";
 
 /*
 * This is 'symlink name' inside the installation directory, which pointing your movies folder anywhere on your disk.
@@ -20,4 +20,4 @@ $symlink = "movies";
 /*
 * You can edit this if you know what are you doing.
 */
-$baseUrl = "http://" . $_SERVER['HTTP_HOST'] ."/". $path;
+$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . $path;
