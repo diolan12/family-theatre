@@ -1,4 +1,10 @@
-<?php include_once 'app.php';
+<?php include_once 'Config.php';
+use Theatre\Config;
+$config = new Config();
+$symlink = $config->symlink;
+$appName = $config->appName;
+$baseUrl = getenv('APP_BASE_URL');
+
 $requestedMovie = htmlspecialchars($_GET["v"]);
 $string = file_get_contents($symlink."/" . $requestedMovie . "/index.json");
 $movieInfo = json_decode($string, true);
@@ -46,18 +52,18 @@ if ($movieInfo['type'] != 'movie') {
     <main>
         <video style="width: 100% !important;" class="responsive-video" controls preload="auto" autoplay controlsList="nodownload" poster>
             <?php if ($movieInfo['type'] == 'movie') : ?>
-                <source src="movies/<?= $requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
+                <source src="<?= $symlink."/".$requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
                 <?php if (count($movieInfo['subtitles']) != 0) : ?>
                     <?php foreach ($movieInfo['subtitles'] as $subtitle) : ?>
-                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="movies/<?= $requestedMovie . "/" . $subtitle['src'] ?>" default>
+                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink."/".$requestedMovie . "/" . $subtitle['src'] ?>" default>
                     <?php endforeach; ?>
                 <?php endif; ?>
 
             <?php else : ?>
-                <source src="movies/<?= $requestedMovie . "/" . $movieInfo['files'][$requestedEpisode]['filename'] ?>" type="<?= $movieInfo['files'][$requestedEpisode]['format'] ?>" />
+                <source src="<?= $symlink."/".$requestedMovie . "/" . $movieInfo['files'][$requestedEpisode]['filename'] ?>" type="<?= $movieInfo['files'][$requestedEpisode]['format'] ?>" />
                 <?php if (count($movieInfo['files'][$requestedEpisode]['subtitles']) != 0) : ?>
                     <?php foreach ($movieInfo['files'][$requestedEpisode]['subtitles'] as $subtitle) : ?>
-                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="movies/<?= $requestedMovie . "/" . $subtitle['src'] ?>" default>
+                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink."/".$requestedMovie . "/" . $subtitle['src'] ?>" default>
                     <?php endforeach; ?>
                 <?php endif; ?>
             <?php endif; ?>

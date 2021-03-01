@@ -1,4 +1,9 @@
-<?php include_once 'app.php';
+<?php include_once 'Config.php';
+use Theatre\Config;
+$config = new Config();
+$symlink = $config->symlink;
+$appName = $config->appName;
+$baseUrl = getenv('APP_BASE_URL');
 
 $movies = [];
 if ($handle = opendir($symlink)) {

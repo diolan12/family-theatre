@@ -1,18 +1,18 @@
-<?php
-
-namespace Minicli;
+<?php namespace Theatre;
 
 include_once 'app.php';
+use Theatre\Config;
 
 class App
 {
     public function runCommand(array $argv)
     {
+        $config = new Config();
         $http = "http://";
-        $address = "127.0.0.1";
-        $port = 2121;
-        $path = "/videos";
-        $baseUrl = "http://" . isset($_SERVER['HTTP_HOST']) . $path;
+        $address = $config->address;
+        $port = $config->port;
+        $symlink = $config->path;
+        $baseUrl = "http://" . isset($_SERVER['HTTP_HOST']) . $symlink;
 
         $name = "World";
         $args = [];
@@ -36,14 +36,14 @@ class App
                         $port = $ar[1];
                         break;
                     case "path":
-                        $path = $ar[1];
+                        $symlink = $ar[1];
                         break;
                 }
             }
         }
 
         echo "Hello $name!!!\n";
-        echo "SERVING APPLICATION IN: $http.$address:$port$path\n";
+        echo "SERVING APPLICATION IN: $http.$address:$port$symlink\n";
         $output = null;
         $retval = null;
         exec("php -S $address:$port", $output, $retval);
