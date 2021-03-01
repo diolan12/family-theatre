@@ -106,7 +106,7 @@ if ($movieInfo['type'] != 'movie') {
                                     </li>
                                 <?php else : ?>
                                     <li class="collection-item grey darken-4">
-                                        <div><?= $episode['title'] ?><a onclick="toEpisode('<?= $baseUrl . "/watch.php?v=" . rawurlencode($requestedMovie) . "&e=" . ($dummyIndex + 1) ?>'); return false;" class="secondary-content"><i class="material-icons white-text">play_circle</i></a></div>
+                                        <div><?= $episode['title'] ?><a onclick="toEpisode('<?= $baseUrl . "watch.php?v=" . rawurlencode($requestedMovie) . "&e=" . ($dummyIndex + 1) ?>'); return false;" class="secondary-content"><i class="material-icons white-text">play_circle</i></a></div>
                                     </li>
                                 <?php endif; ?>
 
