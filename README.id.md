@@ -5,7 +5,7 @@
 
  *Baca dalam bahasa lain: [English](https://github.com/diolan12/family-theatre), [Indonesia](https://github.com/diolan12/family-theatre/blob/main/README.id.md)*
 
-# Screenshots
+# Tangkapan layar
 ## Desktop
 ![desktop](https://github.com/diolan12/family-theatre/raw/main/res/Screenshot%202021-03-01%20090941.jpg)
 
@@ -18,7 +18,7 @@
 - Browsers (e.g. Chrome, Firefox, Safari, Edge)
 - Wifi network (optional)
 
-# How to install (xampp - windows)
+# Cara memasang (xampp - windows)
 1. Make sure your web server app is already installed.
 2. Clone this repository to your `htdocs` directory in your xampp folder.
 3. Open Windows Explorer and point to your movies folder.
@@ -29,7 +29,7 @@
     - this command will print `Symlink created` with green text color.
 7. Done, you can unlink the application with `php app unlink`.
 
-# How to add movies or serials
+# Cara menambahkan film atau serial
 1. Make sure you already create a symlink to your video directory.
 2. Type `php app index`, then hit enter to list all movie folders.
     - this command will print `[Movie Folder] (indexed / not indexed)(with poster / poster not exist)`.
@@ -43,13 +43,13 @@
 5. Fill the video information (example included), then save it.
 7. Done.
 
-# How to add poster
+# Cara menambahkan poster
 1. Make sure you already create a symlink to your video directory.
 2. Google for the serial or movie poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
 3. Move the downloaded poster art to your movie directory, rename it to `poster.jpg`.
 4. Done.
 
-# How to add subtitles
+# Cara menambahkan subtitle
 1. Make sure you already create a symlink to your video directory.
 2. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
 3. Place your `.vtt` subtitle in the same directory next to your serial video.
@@ -58,8 +58,8 @@
 6. Fill the subtitle information (example included) then save it.
 7. Done.
 
-# How to serve
-## Serve with app command-line interface
+# Cara menjalankan aplikasi
+## Jalankan dengan antarmuka baris-perintah dari aplikasi
 1. Prepare some popcorn and soda.
 2. Run cmd/terminal as administrator.
 3. Open your app installation folder e.g. `cd C:\xampp\htdocs\{your installation folder}`, hit enter.
@@ -71,10 +71,10 @@
 6. Open your browser and type `http://{your local ip}:{your port}/` in url bar, hit enter.
 7. Enjoy.
 
-# Command-Line Interface
-To run the built-in command-line interface, just type `php app`.
-Usage: `php app {command} {arguments}`
-## List of available commands:
+# Antarmuka Baris-Perintah
+Untuk menjalankan antarmuka baris-perintah bawaan, ketik `php app`.
+Penggunaan: `php app {command} {arguments}`
+## Daftar perintah-perintah:
 - `help`                  : Display this help screen.
 - `link {args}`           : Link application to video directory.
 - `unlink`                : Unlink application from video directory.
@@ -83,7 +83,7 @@ Usage: `php app {command} {arguments}`
 - `serve {args}`          : Serving the application.
 - `index`                 : Showing list of indexed directories.
 - `index {args}`          : Indexing a given directory name in argument, then showing list of indexed directories.
-## List of available arguments:
+## Daftar argumen-argumen:
 - `symlink={path}`        : Use with link command to link the application with video directory.
                           e.g. (php app link symlink=D:\Videos)
 - `folder={dir name}`     : Use with index command to index a video directory.
@@ -94,7 +94,7 @@ Usage: `php app {command} {arguments}`
 - `port={port}`           : Use with serve command to specify the server port (default: 2121).
                           e.g. (php app serve port=8080)
 
-## Additional tips:
+## Tips tambahan:
 To serve this application just run this command:
     `php app serve addr={your.ip} port={your_port}`
 Make sure you already link the video directory first, otherwise it will return error.
