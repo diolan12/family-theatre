@@ -23,54 +23,50 @@
 4. Click the uri bar on top, then copy the path.
 5. Open terminal or cmd.exe as administrator in the app installation directory.
 6. Type `php app link symlink={your path in clipboard}` (right click to paste), then hit enter.
-    - e.g. `php app link symlink=D:\Videos\Dummy\Avengers - Endgame`
-7.
-3. Create a symlink inside this app installation.
-    - windows: run cmd as admin > create symlink junction `mklink /J C:\LinkToFolder C:\Users\Name\OriginalFolder`.
-    - [how to create a symlink](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/).
-4. Open app.php with text editor of your choice (vscode, notepad++, sublime, vim, etc).
-5. Fill the app constants, then save it (documentation included).
-6. Done.
+    - e.g. `php app link symlink=D:\Videos\Dummy\Avengers - Endgame`.
+    - this command will print `Symlink created` with green text color.
+7. Done, you can unlink the application with `php app unlink`.
 
-# How to add movies and subtitles
+# How to add movies or serials
 1. Make sure you already create a symlink to your video directory.
-2. Copy **`movie_index.json`** to your movie directory.
-3. Google for the movie poster art and download it with format of `.jpg` (optional but recommended), this will reduce load speed.
-4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
-5. Place your `.vtt` subtitle in the same directory next to your movie video.
-6. If you have more than one subtitle, repeat **step number 4 and 5**.
-7. Edit **`movie_index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
-8. Fill the movie information (example included) then save it.
-9. Rename **`movie_index.json`** to **`index.json`**.
-10. Done.
+2. Type `php app index`, then hit enter to list all movie folders.
+    - this command will print `[Movie Folder] (indexed / not indexed)(with poster / poster not exist)`.
+        - this command will print `[Movie Folder] (indexed / not indexed)(with poster / poster not exist)`.
+3. Type `php app index folder="{Movie Folder}" type={serial/movie}`, then hit enter.
+    - e.g. `php app index folder="Avengers - Endgame" type=movie`.
+    - replace Movie Folder with your desired folder name.
+    - there are 2 types of known video type, first is `movie` or `serial`.
+    - this will create a **index.json** file inside your Movie Folder.
+4. Edit **`index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+5. Fill the video information (example included), then save it.
+7. Done.
 
-# How to add serials and subtitles
+# How to add poster
 1. Make sure you already create a symlink to your video directory.
 2. Copy **`serial_index.json`** to your movie directory.
-3. Google for the serial poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
-4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
-5. Place your `.vtt` subtitle in the same directory next to your serial video.
-6. If you have more than one subtitle, repeat **step number 4 and 5**.
-7. Edit **`serial_index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
-8. Fill the serial information (example included) then save it.
-9. Rename **`serial_index.json`** to **`index.json`**.
-10. Done.
+3. Google for the serial or movie poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
+4. Move the downloaded poster art to your movie directory, rename it to `poster.jpg`.
+5. Done.
+
+# How to add subtitles
+1. Make sure you already create a symlink to your video directory.
+2. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
+3. Place your `.vtt` subtitle in the same directory next to your serial video.
+4. If you have more than one subtitle, repeat **step number 2 and 3**.
+5. Edit **`index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+6. Fill the subtitle information (example included) then save it.
+7. Done.
 
 # How to serve
-There are two ways to serve this app. first is using xampp server, second is using cmd to serve with php built-in server
-## Serve with xampp server
-1. Prepare some popcorn and soda.
-2. Run xampp (windows 10 require run as administrator).
-3. Make sure your app settings in `app.php` is well configured.
-4. Open your browser and type `http://localhost/{your installation folder}`, hit enter.
-5. Enjoy.
-
-## Serve with php built-in server
+## Serve with app cli
 1. Prepare some popcorn and soda.
 2. Run cmd/terminal as administrator.
 3. Open your app installation folder e.g. `cd C:\xampp\htdocs\{your installation folder}`, hit enter.
-4. Make sure your app settings in `app.php` is well configured.
-5. type `php -S {your computer local ip, e.g. 192.168.1.2}:{your port}`, hit enter (example: `php -S 192.168.1.2:8080`).
-6. Open your browser and type `http://{your local ip}/`, hit enter.
+4. Make sure your app settings in `Config.php` is well configured.
+5. type `php app serve addr={your computer local ip, e.g. 192.168.1.2} port={your port}`, hit enter.
+    - e.g `php app serve addr=192.168.1.2 port=8080`.
+    - default address is localhost.
+    - default port is 2121.
+6. Open your browser and type `http://{your local ip}/` in url bar, hit enter.
 7. Enjoy.
 
