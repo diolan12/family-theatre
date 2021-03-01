@@ -18,6 +18,14 @@
 
 # How to add movies
 1. Make sure you already create a symlink to your video directory.
+2. Copy movie_index.json to your movie directory.
+3. Edit movie_index.json with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+4. Fill the movie information (example included) then save it.
+5. Google for the movie poster art and download it with format of `.jpg`. (optional but recommended) 
 
 # How to add serials
 1. Make sure you already create a symlink to your video directory.
+2. Copy serial_index.json to your movie directory.
+3. Edit movie_index.json with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+4. Fill the serial information (example included) then save it.
+5. Google for the serial poster art and download it with format of `.jpg`. (optional but recommended) 
