@@ -1,11 +1,13 @@
 <?php namespace Theatre;
 
 require_once 'Config.php';
+require_once 'bin\Bin.php';
 
 use Theatre\Config;
 class App
 {
     protected $config;
+    protected $bin;
     protected $version = "1.0";
     protected function parseArgs(array $rawArgs)
     {
