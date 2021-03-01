@@ -1,6 +1,4 @@
-<?php
-
-namespace Theatre;
+<?php namespace Theatre;
 
 class Config
 {
