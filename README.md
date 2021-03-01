@@ -3,5 +3,6 @@
 
 # Requirements
 - Wifi network
-- Server app (xampp, wamp)
+- Web server software (e.g. Nginx, Apache)
 - PHP
+- Browsers (e.g. Chrome, Firefox, Safari, Edge)
