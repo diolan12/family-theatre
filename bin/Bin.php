@@ -124,6 +124,11 @@ class Bin
         }
     }
     protected function addIndex(array $args){
+        if($args['type'] != 'movie' && $args['type'] != 'serial'){
+            echo "\033[01;31m ".$args['type']." is not correct known video type.\033[0m\n\n";
+            return false;
+        }
+
         $json = getcwd()."\\".$args['type']."_index.json";
         // $isExist = file_exists($json) ? "\033[01;32mexist\033[0m" : "\033[01;31mnot exist\033[0m";
         if(!file_exists($json)) {
