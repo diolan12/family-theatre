@@ -13,10 +13,10 @@
 ![mobile](https://github.com/diolan12/family-theatre/raw/main/res/Image%202021-03-01%20at%2009.11.33.jpeg)
 
 # Requirements
-- Web server software e.g. Nginx, Apache (xampp, wamp)
+- Web server seperti Nginx, Apache (xampp, wamp)
 - PHP
-- Browsers (e.g. Chrome, Firefox, Safari, Edge)
-- Wifi network (optional)
+- Peramban (e.g. Chrome, Firefox, Safari, Edge)
+- Jaringan wi-fi (opsional)
 
 # Cara memasang (xampp - windows)
 1. Make sure your web server app is already installed.
