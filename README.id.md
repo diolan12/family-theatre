@@ -1,9 +1,9 @@
 # Family Theatre
- Simple web app made with plain php, built for your home family theatre.
- This app doesn't require a database, instead this app will scan directories in the given symlink and depends on json file for the data of the movie. This app support both single movie file in a directory and a multi serial video.
- There are 2 types of folder recognized by this app. type 1 is `movie` where there is only one video in a directory, and then type 2 is `serial` where there is multi video in a directory. This app also supports multiple subtitle, currently works with `.vtt` only, so when you have a `.srt` subtitle file you can convert it [here](https://subtitletools.com/convert-to-vtt-online) and then fill the data in the `index.json` file in each directory.
+ Web app sederhana dari php, ditulis untuk teater keluarga anda.
+ Aplikasi ini tidak membutuhkan *database*, aplikasi ini akan men-scan direktori-direktori pada symlink dan dan bergantung pada berkas json untuk menyimpan data video. Aplikasi ini mendukung baik satu berkas video maupun banyak berkas dalam satu direktori.
+ Ada 2 jenis direktori yang dikenal oleh aplikasi ini, yang pertama adalah `movie` dimana hanya ada satu video dalam sebuah direktori, dan yang kedua adalah `serial` dimana ada banyak video dalam satu direktori. Aplikasi ini juga mendukung lebih dari satu subtitle, saat ini hanya bisa menggunakan `.vtt` saja, jadi ketika anda mempunyai berkas subtitle `.srt` anda bisa mengkonversinya [disini](https://subtitletools.com/convert-to-vtt-online) dan kemudian mengisi data di berkas `index.json` di setiap direktori.
 
- *Read this in other languages: [English](https://github.com/diolan12/family-theatre), [Indonesia](https://github.com/diolan12/family-theatre/blob/main/README.id.md)*
+ *Baca dalam bahasa lain: [English](https://github.com/diolan12/family-theatre), [Indonesia](https://github.com/diolan12/family-theatre/blob/main/README.id.md)*
 
 # Screenshots
 ## Desktop
