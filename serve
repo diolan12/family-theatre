@@ -1,0 +1,62 @@
+<?php
+
+namespace Minicli;
+
+include_once 'app.php';
+
+class App
+{
+    public function runCommand(array $argv)
+    {
+        $http = "http://";
+        $address = "127.0.0.1";
+        $port = 2121;
+        $path = "/videos";
+        $baseUrl = "http://" . isset($_SERVER['HTTP_HOST']) . $path;
+
+        $name = "World";
+        $args = [];
+        if (isset($argv)) {
+            $name = $argv[1];
+            $args[] = $argv[1];
+        }
+        foreach ($argv as $arg) {
+            $args[] = explode("=", $arg);
+            echo "arg $arg\n";
+        }
+
+        foreach ($args as $ar) {
+            if (isset($ar[1])) {
+                echo "$ar[0] => $ar[1]\n";
+                switch ($ar[0]){
+                    case "addr":
+                        $address = $ar[1];
+                        break;
+                    case "port":
+                        $port = $ar[1];
+                        break;
+                    case "path":
+                        $path = $ar[1];
+                        break;
+                }
+            }
+        }
+
+        echo "Hello $name!!!\n";
+        echo "SERVING APPLICATION IN: $http.$address:$port$path\n";
+        $output = null;
+        $retval = null;
+        exec("php -S $address:$port", $output, $retval);
+        echo "Returned with status $retval and output:\n";
+        print_r($output);
+    }
+}
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+// use App;
+
+$app = new App();
+$app->runCommand($argv);
