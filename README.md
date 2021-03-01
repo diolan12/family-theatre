@@ -19,11 +19,11 @@
 
 # How to add movies and subtitles
 1. Make sure you already create a symlink to your video directory.
-2. Copy **movie_index.json** to your movie directory.
+2. Copy **`movie_index.json`** to your movie directory.
 3. Google for the movie poster art and download it with format of `.jpg` (optional but recommended), this will reduce load speed.
 4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
 5. Place your `.vtt` subtitle in the same directory next to your movie video.
-6. Edit **movie_index.json** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+6. Edit **`movie_index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
 7. Fill the movie information (example included) then save it.
 
 # How to add serials and subtitles
