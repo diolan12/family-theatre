@@ -73,9 +73,9 @@
 To run the built-in command-line interface, just type `php app`.
 Usage: `php app {command} {arguments}`
 ## List of available commands:
-- help                  : Display this help screen.
-- link {args}           : Link application to video directory.
-- unlink                : Unlink application from video directory.
+  - `help`                  : Display this help screen.
+- `link {args}`           : Link application to video directory.
+- `unlink`                : Unlink application from video directory.
 - version               : Display application version.
 - status                : Display application current status.
 - serve {args}          : Serving the application.
