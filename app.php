@@ -20,4 +20,4 @@ $symlink = "movies";
 /*
 * You can edit this if you know what are you doing.
 */
-$baseUrl = "http://" . $_SERVER['SERVER_NAME'] ."/". $path;
+$baseUrl = "http://" . $_SERVER['HTTP_HOST'] ."/". $path;
