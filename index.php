@@ -6,9 +6,9 @@ if ($handle = opendir($symlink)) {
     while (false !== ($folder = readdir($handle))) {
         if (!in_array($folder, $blacklist)) {
             $index = count($movies);
-            $json = file_get_contents($symlink."/" . $folder . "/index.json");
-            if (file_exists($symlink."/" . $folder . "/poster.jpg")) {
-                $movies[$index]['poster'] = $symlink."/" . $folder . "/poster.jpg";
+            $json = file_get_contents($symlink . "/" . $folder . "/index.json");
+            if (file_exists($symlink . "/" . $folder . "/poster.jpg")) {
+                $movies[$index]['poster'] = $symlink . "/" . $folder . "/poster.jpg";
             }
             $movies[$index]['folder'] = $folder;
             $movies[$index]['info'] = json_decode($json, true);
@@ -22,6 +22,8 @@ if ($handle = opendir($symlink)) {
 
 <head>
     <title><?= $appName ?></title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
