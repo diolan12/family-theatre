@@ -9,7 +9,7 @@ use Theatre\Config;
 class Bin
 {
     protected $config;
-    public $version = "1.0.156";
+    public $version = "1.0.176";
     function __construct()
     {
         $this->config = new Config();
