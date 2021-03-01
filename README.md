@@ -57,15 +57,45 @@
 7. Done.
 
 # How to serve
-## Serve with app cli
+## Serve with app command-line interface
 1. Prepare some popcorn and soda.
 2. Run cmd/terminal as administrator.
 3. Open your app installation folder e.g. `cd C:\xampp\htdocs\{your installation folder}`, hit enter.
 4. Make sure your app settings in `Config.php` is well configured.
 5. type `php app serve addr={your computer local ip, e.g. 192.168.1.2} port={your port}`, hit enter.
     - e.g `php app serve addr=192.168.1.2 port=8080`.
-    - default address is localhost.
-    - default port is 2121.
-6. Open your browser and type `http://{your local ip}/` in url bar, hit enter.
+    - default address is **localhost**.
+    - default port is **2121**.
+6. Open your browser and type `http://{your local ip}:{your port}/` in url bar, hit enter.
 7. Enjoy.
 
+# Command-Line Interface
+To run the built-in command-line interface, just type `php app`.
+Usage: `php app {command} {arguments}`
+## List of available commands:
+- help                  : Display this help screen.
+- link {args}           : Link application to video directory.
+- unlink                : Unlink application from video directory.
+- version               : Display application version.
+- status                : Display application current status.
+- serve {args}          : Serving the application.
+- index                 : Showing list of indexed directories.
+- index {args}          : Indexing a given directory name in argument, then showing list of indexed directories.
+## List of available arguments:
+- symlink={path}        : Use with link command to link the application with video directory.
+                          e.g. (php app link symlink=D:\Videos)
+- folder={dir name}     : Use with index command to index a video directory.
+- type={video type}     : Use with index command to index a video directory type.
+                          e.g. (php app index folder="The Mandalorian - Season 2" type=serial)
+- addr={address}        : Use with serve command to specify the server address (default: localhost).
+                          e.g. (php app serve addr=192.168.1.2)
+- port={port}           : Use with serve command to specify the server port (default: 2121).
+                          e.g. (php app serve port=8080)
+
+## Additional tips:
+    To serve this application just run this command php app serve addr={your.ip} port={your_port}.
+Make sure you already link the video directory first, otherwise it will return error.
+Replace the 'your.ip' with your machine IP address and 'your_port' with your desired unused port,
+You can use port 80 when apache/nginx is not running.
+You can not access this application from other devices when your default address
+is localhost, use your machine IP address instead of localhost.
