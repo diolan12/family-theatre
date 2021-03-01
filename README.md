@@ -15,17 +15,22 @@
 3. Create a symlink inside this app installation.
     - windows: run cmd as admin > create symlink junction `mklink /J C:\LinkToFolder C:\Users\Name\OriginalFolder`.
     - [how to create a symlink](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/).
+4. Done.
 
-# How to add movies
+# How to add movies and subtitles
 1. Make sure you already create a symlink to your video directory.
-2. Copy movie_index.json to your movie directory.
-3. Edit movie_index.json with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
-4. Fill the movie information (example included) then save it.
-5. Google for the movie poster art and download it with format of `.jpg`. (optional but recommended) 
+2. Copy **movie_index.json** to your movie directory.
+3. Google for the movie poster art and download it with format of `.jpg` (optional but recommended), this will reduce load speed.
+4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
+5. Place your `.vtt` subtitle in the same directory next to your movie video.
+6. Edit **movie_index.json** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+7. Fill the movie information (example included) then save it.
 
-# How to add serials
+# How to add serials and subtitles
 1. Make sure you already create a symlink to your video directory.
-2. Copy serial_index.json to your movie directory.
-3. Edit movie_index.json with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
-4. Fill the serial information (example included) then save it.
-5. Google for the serial poster art and download it with format of `.jpg`. (optional but recommended) 
+2. Copy **serial_index.json** to your movie directory.
+3. Google for the serial poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
+4. Convert your `.srt` subtitle to `.vtt` [here](https://subtitletools.com/convert-to-vtt-online).
+5. Place your `.vtt` subtitle in the same directory next to your serial video.
+6. Edit **movie_index.json** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
+7. Fill the serial information (example included) then save it.
