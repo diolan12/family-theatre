@@ -7,7 +7,7 @@ class App
 {
     protected $config;
     protected $version = "1.0";
-    function parseArgs(array $rawArgs)
+    protected function parseArgs(array $rawArgs)
     {
         $parsedArgs = array();
         unset($rawArgs[0]);
@@ -25,8 +25,6 @@ class App
         $output = null;
         $retval = null;
         exec($command, $output, $retval);
-        //echo "$retval:\n";
-        //print_r($output);
         $result = [
             "retval" => $retval,
             "output" => $output
@@ -112,7 +110,8 @@ class App
         putenv("APP_BASE_URL=$baseUrl");
         $shell = "php -S $address:$port";
         $this->execute($shell);
-    }public function help(array $args)
+    }
+    public function help(array $args)
     {
         $this->version($args);
         echo "\033[00;32m Usage: php app {command} {arguments} \033[0m \n";
