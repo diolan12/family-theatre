@@ -1,9 +1,9 @@
 <?php
 
-$appName = "E&D Theatre";
+$appName = "My Theatre";
 
-$path = "/videos";
+$path = "videos";
 
 $symlink = "movies";
 
-$baseUrl = "http://" . $_SERVER['SERVER_NAME'] . $path;
+$baseUrl = "http://" . $_SERVER['SERVER_NAME'] ."/". $path;
