@@ -13,6 +13,10 @@ if ($movieInfo['type'] != 'movie') {
     $requestedEpisode = intval(htmlspecialchars($_GET["e"])) - 1;
     $dummyIndex = 0;
 }
+$poster = $symlink."/".$requestedMovie . "/poster.jpg";
+if (!file_exists($poster)){
+    $poster = $movieInfo['poster'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -50,7 +54,7 @@ if ($movieInfo['type'] != 'movie') {
     </nav>
 
     <main>
-        <video style="width: 100% !important;" class="responsive-video" controls preload="auto" autoplay controlsList="nodownload" poster>
+        <video style="width: 100% !important;" class="responsive-video" controls preload="auto" autoplay controlsList="nodownload" poster="<?= $poster?>">
             <?php if ($movieInfo['type'] == 'movie') : ?>
                 <source src="<?= $symlink."/".$requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
                 <?php if (count($movieInfo['subtitles']) != 0) : ?>
