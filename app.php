@@ -13,7 +13,7 @@ $appName = "My Theatre";
 $path = "videos";
 
 /*
-* This is symlink which will be used to pointing your movies folder anywhere on your disk.
+* This is 'symlink name' inside the installation directory, which pointing your movies folder anywhere on your disk.
 */
 $symlink = "movies";
 
