@@ -4,9 +4,10 @@
  There are 2 types of folder recognized by this app. type 1 is `movie` where there is only one video in a directory, and then type 2 is `serial` where there is multi video in a directory. This app also supports multiple subtitle, currently works with `.vtt` only, so when you have a `.srt` subtitle file you can convert it [here](https://subtitletools.com/convert-to-vtt-online) and then fill the data in the `index.json` file in each directory.
 
 # Screenshots
-- Desktop
+## Desktop
 ![desktop](https://github.com/diolan12/family-theatre/raw/main/res/Screenshot%202021-03-01%20090941.jpg)
-- Mobile
+
+## Mobile
 ![mobile](https://github.com/diolan12/family-theatre/raw/main/res/2021-03-01%20at%2009.11.33.jpeg)
 
 # Requirements
