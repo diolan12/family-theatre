@@ -23,7 +23,7 @@
 4. Click the uri bar on top, then copy the path.
 5. Open terminal or cmd.exe as administrator in the app installation directory.
 6. Type `php app link symlink={your path in clipboard}` (right click to paste), then hit enter.
-    - e.g. `php app link symlink=D:\Videos\Dummy\Avengers - Endgame`.
+    - e.g. `php app link symlink=D:\Videos\Movies`.
     - this command will print `Symlink created` with green text color.
 7. Done, you can unlink the application with `php app unlink`.
 
@@ -31,22 +31,21 @@
 1. Make sure you already create a symlink to your video directory.
 2. Type `php app index`, then hit enter to list all movie folders.
     - this command will print `[Movie Folder] (indexed / not indexed)(with poster / poster not exist)`.
-        - this command will print `[Movie Folder] (indexed / not indexed)(with poster / poster not exist)`.
+    - this command will print `[Movie Folder] (indexed / not indexed)(with poster / poster not exist)`.
 3. Type `php app index folder="{Movie Folder}" type={serial/movie}`, then hit enter.
     - e.g. `php app index folder="Avengers - Endgame" type=movie`.
-    - replace Movie Folder with your desired folder name.
-    - there are 2 types of known video type, first is `movie` or `serial`.
-    - this will create a **index.json** file inside your Movie Folder.
+    - replace **Movie Folder** with your desired folder name.
+    - there are 2 types of known video type, first is `movie`, second is `serial`.
+    - this will create an **index.json** file inside your **Movie Folder**.
 4. Edit **`index.json`** with notepad, right click on it > select `Open with...` > select `notepad` (or use any of your favorite text editor).
 5. Fill the video information (example included), then save it.
 7. Done.
 
 # How to add poster
 1. Make sure you already create a symlink to your video directory.
-2. Copy **`serial_index.json`** to your movie directory.
-3. Google for the serial or movie poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
-4. Move the downloaded poster art to your movie directory, rename it to `poster.jpg`.
-5. Done.
+2. Google for the serial or movie poster art and download it with format of `.jpg` (optional but recommended),this will reduce load speed.
+3. Move the downloaded poster art to your movie directory, rename it to `poster.jpg`.
+4. Done.
 
 # How to add subtitles
 1. Make sure you already create a symlink to your video directory.
