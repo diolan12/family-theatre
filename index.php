@@ -86,9 +86,9 @@ if(is_dir($symlink)){
                                     <p><?= htmlentities(json_encode($movie['info']['description'])) ?></p>
                                     <div class="card-action">
                                         <?php if ($movie['info']['type'] == 'movie') : ?>
-                                            <a href="<?= $baseUrl . "/watch.php?v=" . rawurlencode($movie['folder']) ?>" class="blue-text">Tonton</a>
+                                            <a href="<?= $baseUrl . "watch.php?v=" . rawurlencode($movie['folder']) ?>" class="blue-text">Tonton</a>
                                         <?php else : ?>
-                                            <a href="<?= $baseUrl . "/watch.php?v=" . rawurlencode($movie['folder']) ?>&e=1" class="blue-text">Tonton</a>
+                                            <a href="<?= $baseUrl . "watch.php?v=" . rawurlencode($movie['folder']) ?>&e=1" class="blue-text">Tonton</a>
                                         <?php endif; ?>
                                     </div>
                                 </div>
