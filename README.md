@@ -46,11 +46,18 @@
 # How to serve
 There are two ways to serve this app. first is using xampp server, second is using cmd to serve with php built-in server
 ## Serve with xampp server
-1. Run xampp (windows 10 require run as administrator).
-2. Make sure your app settings in `app.php` is well configured.
-3. Prepare some popcorn and soda.
+1. Prepare some popcorn and soda.
+2. Run xampp (windows 10 require run as administrator).
+3. Make sure your app settings in `app.php` is well configured.
 4. Open your browser and type `http://localhost/{your installation folder}`, hit enter.
 5. Enjoy.
 
 ## Serve with php built-in server
-1. Run cmd/terminal as administrator.
+1. Prepare some popcorn and soda.
+2. Run cmd/terminal as administrator.
+3. Open your app installation folder e.g. `cd C:\xampp\htdocs\{your installation folder}`, hit enter.
+4. Make sure your app settings in `app.php` is well configured.
+5. type `php -S {your computer local ip, e.g. 192.168.1.2}:{your port}`, hit enter (example: `php -S 192.168.1.2:8080`).
+6. Open your browser and type `http://{your local ip}/`, hit enter.
+7. Enjoy.
+
