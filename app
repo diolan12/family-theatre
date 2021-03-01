@@ -88,7 +88,31 @@ class App
     {
         echo "\033[01;35m Family Theatre version $this->version \033[0m \n";
     }
-    public function help(array $args)
+    
+    public function serve(array $args)
+    {
+        $address = $this->config->address;
+        if(isset($args['addr'])) $address = $args['addr'];
+        $port = $this->config->port;
+        if(isset($args['port'])) $port = $args['port'];
+
+        $baseUrl = "";
+
+        if ($port == 80) {
+            $baseUrl = "http://$address/";
+            echo "\033[01;32m Serving in $baseUrl \033[0m \n";
+        } else if ($port == 443) {
+            echo "\033[01;31m Serving in https://$address/ \033[0m \n";
+            echo "\033[01;31m We limit the app to not run in https / port 443 (not yet supported) \033[0m \n";
+            exit;
+        } else {
+            $baseUrl = "http://$address:$port/";
+            echo "\033[01;32m Serving in $baseUrl \033[0m \n";
+        }
+        putenv("APP_BASE_URL=$baseUrl");
+        $shell = "php -S $address:$port";
+        $this->execute($shell);
+    }public function help(array $args)
     {
         $this->version($args);
         echo "\033[00;32m Usage: php app {command} {arguments} \033[0m \n";
@@ -113,30 +137,6 @@ class App
         echo "Replace the 'your.ip' with your machine IP address and 'your_port' with your desired unused port,\n";
         echo "You can use port 80 when apache/nginx is not running.\n";
         echo "\033[00;34m Enjoy the movie :) \033[0m\n";
-    }
-    public function serve(array $args)
-    {
-        $address = $this->config->address;
-        if(isset($args['addr'])) $address = $args['addr'];
-        $port = $this->config->port;
-        if(isset($args['port'])) $port = $args['port'];
-
-        $baseUrl = "";
-
-        if ($port == 80) {
-            $baseUrl = "http://$address/";
-            echo "\033[01;32m Serving in $baseUrl \033[0m \n";
-        } else if ($port == 443) {
-            echo "\033[01;31m Serving in https://$address/ \033[0m \n";
-            echo "\033[01;31m We limit the app to not run in https / port 443 (not yet supported) \033[0m \n";
-            exit;
-        } else {
-            $baseUrl = "http://$address:$port/";
-            echo "\033[01;32m Serving in $baseUrl \033[0m \n";
-        }
-        putenv("APP_BASE_URL=$baseUrl");
-        $shell = "php -S $address:$port";
-        $this->execute($shell);
     }
 }
 
