@@ -14,6 +14,8 @@ if ($movieInfo['type'] != 'movie') {
 
 <head>
     <title><?= $requestedMovie . " - " . $appName ?></title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
