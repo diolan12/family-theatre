@@ -8,7 +8,7 @@
 ![desktop](https://github.com/diolan12/family-theatre/raw/main/res/Screenshot%202021-03-01%20090941.jpg)
 
 ## Mobile
-![mobile](https://github.com/diolan12/family-theatre/raw/main/res/2021-03-01%20at%2009.11.33.jpeg)
+![mobile](https://github.com/diolan12/family-theatre/raw/main/res/Image%202021-03-01%20at%2009.11.33.jpeg)
 
 # Requirements
 - Web server software e.g. Nginx, Apache (xampp, wamp)
