@@ -1,0 +1,14 @@
+.collection {
+    border: 1px solid #424242 !important;
+}
+
+.collection .collection-item {
+    border-bottom: 1px solid #212121 !important;
+}
+
+.center-cropped {
+    height: 90%;
+    object-fit: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
