@@ -61,7 +61,7 @@ class Bin
         }
         putenv("APP_BASE_URL=$baseUrl");
         $shell = "php -S $address:$port";
-        $this->bin->execute($shell);
+        $this->execute($shell);
     }
     public function unlink(array $args)
     {
