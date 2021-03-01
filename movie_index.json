@@ -7,6 +7,7 @@
     "filename": "Avengers Endgame.mp4",
     "format": "video/mp4",
     "subtitles": [
-
+        { "src": "[EN] The Mandalorian S01E01.vtt", "country": "English" },
+        { "src": "[ID] The Mandalorian S01E01.vtt", "country": "Indonesia" }
     ]
 }
