@@ -7,6 +7,8 @@ $appName = "My Theatre";
 
 /*
 * This is the path of your application installation.
+* e.g. your installation directory is C:\xampp\htdocs\videos
+* you can fill it to "videos"
 */
 $path = "videos";
 
