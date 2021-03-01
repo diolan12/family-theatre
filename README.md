@@ -17,8 +17,14 @@
 - Wifi network (optional)
 
 # How to install (xampp - windows)
-1. Make sure to your web server app is already installed.
+1. Make sure your web server app is already installed.
 2. Clone this repository to your `htdocs` directory in your xampp folder.
+3. Open Windows Explorer and point to your movies folder.
+4. Click the uri bar on top, then copy the path.
+5. Open terminal or cmd.exe as administrator in the app installation directory.
+6. Type `php app link symlink={your path in clipboard}` (right click to paste), then hit enter.
+    - e.g. `php app link symlink=D:\Videos\Dummy\Avengers - Endgame`
+7.
 3. Create a symlink inside this app installation.
     - windows: run cmd as admin > create symlink junction `mklink /J C:\LinkToFolder C:\Users\Name\OriginalFolder`.
     - [how to create a symlink](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/).
