@@ -16,7 +16,7 @@
 - Web server software e.g. Nginx, Apache (xampp, wamp)
 - PHP
 - Browsers (e.g. Chrome, Firefox, Safari, Edge)
-- Wifi network (optional)
+- Local area network (optional)
 
 # How to install (xampp - windows)
 1. Make sure your web server app is already installed.
