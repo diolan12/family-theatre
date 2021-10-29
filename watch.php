@@ -58,7 +58,7 @@ if (!file_exists($poster)) {
     <main>
         <video id="hls-player" class="responsive-video video-js" controls controlsList="nodownload" poster="<?= $poster ?>">
             <?php if ($movieInfo['type'] == 'movie') : ?>
-                <source  src="<?= $symlink . "/" . $requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
+                <source src="<?= $symlink . "/" . $requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
                 <?php if (count($movieInfo['subtitles']) != 0) : ?>
                     <?php foreach ($movieInfo['subtitles'] as $subtitle) : ?>
                         <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink . "/" . $requestedMovie . "/" . $subtitle['src'] ?>" default>
@@ -127,14 +127,22 @@ if (!file_exists($poster)) {
         </div>
     </main>
     <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+    <script src="//cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script>
     <script type="text/javascript">
-    var player = videojs('hls-player', {
+        var player = videojs('hls-player', {
             fluid: true,
             responsive: true
             // usingNativeControls: false,
             // nativeControlsForTouch: true,
+        }).ready(function() {
+            this.hotkeys({
+                volumeStep: 0.05,
+                seekStep: 5,
+                enableModifiersForNumbers: false
+            })
         });
-        
+
+
         // player.useNativeControls();
         player.play();
     </script>
