@@ -31,6 +31,6 @@ class Config
     * This is 'symlink name' inside the installation directory, which pointing your movies
     * folder anywhere on your disk. Default value is 'movies'
     */
-    public $symlink = "movies";
+    public $symlink = "storage";
 
 }
