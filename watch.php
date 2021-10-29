@@ -1,29 +1,31 @@
 <?php include_once 'Config.php';
+
 use Theatre\Config;
+
 $config = new Config();
 $symlink = $config->symlink;
 $appName = $config->appName;
 $baseUrl = getenv('APP_BASE_URL');
 
 $requestedMovie = htmlspecialchars($_GET["v"]);
-$string = file_get_contents($symlink."/" . $requestedMovie . "/index.json");
+$string = file_get_contents($symlink . "/" . $requestedMovie . "/index.json");
 $movieInfo = json_decode($string, true);
 
 if ($movieInfo['type'] != 'movie') {
     $requestedEpisode = intval(htmlspecialchars($_GET["e"])) - 1;
     $dummyIndex = 0;
 }
-$poster = $symlink."/".$requestedMovie . "/poster.jpg";
-if (!file_exists($poster)){
+$poster = $symlink . "/" . $requestedMovie . "/poster.jpg";
+if (!file_exists($poster)) {
     $poster = $movieInfo['poster'];
 }
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-    <title><?= $requestedMovie . " - " . $appName ?></title>
+    <title><?= $movieInfo['title'] . " - " . $appName ?></title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!--Import Google Icon Font-->
@@ -49,25 +51,25 @@ if (!file_exists($poster)){
     <nav>
         <div class="nav-wrapper deep-purple">
             <a href="<?= $baseUrl ?>" class="brand-logo center"><?= $appName ?></a>
-            <a href="#" onclick="goBack()" style="display:block" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
+            <a href="#" onclick="goBack()" style="display:block" class="sidenav-trigger btn-flat waves-effect waves-light"><i class="material-icons white-text">arrow_back</i></a>
         </div>
     </nav>
 
     <main>
-        <video style="width: 100% !important;" class="responsive-video" controls preload="auto" autoplay controlsList="nodownload" poster="<?= $poster?>">
+        <video id="hls-player" class="responsive-video video-js" controls controlsList="nodownload" poster="<?= $poster ?>">
             <?php if ($movieInfo['type'] == 'movie') : ?>
-                <source src="<?= $symlink."/".$requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
+                <source  src="<?= $symlink . "/" . $requestedMovie . "/" . $movieInfo['filename'] ?>" type="<?= $movieInfo['format'] ?>" />
                 <?php if (count($movieInfo['subtitles']) != 0) : ?>
                     <?php foreach ($movieInfo['subtitles'] as $subtitle) : ?>
-                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink."/".$requestedMovie . "/" . $subtitle['src'] ?>" default>
+                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink . "/" . $requestedMovie . "/" . $subtitle['src'] ?>" default>
                     <?php endforeach; ?>
                 <?php endif; ?>
 
             <?php else : ?>
-                <source src="<?= $symlink."/".$requestedMovie . "/" . $movieInfo['files'][$requestedEpisode]['filename'] ?>" type="<?= $movieInfo['files'][$requestedEpisode]['format'] ?>" />
+                <source src="<?= $symlink . "/" . $requestedMovie . "/" . $movieInfo['files'][$requestedEpisode]['filename'] ?>" type="<?= $movieInfo['files'][$requestedEpisode]['format'] ?>" />
                 <?php if (count($movieInfo['files'][$requestedEpisode]['subtitles']) != 0) : ?>
                     <?php foreach ($movieInfo['files'][$requestedEpisode]['subtitles'] as $subtitle) : ?>
-                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink."/".$requestedMovie . "/" . $subtitle['src'] ?>" default>
+                        <track label="<?= $subtitle['country'] ?>" kind="subtitles" srclang="en" src="<?= $symlink . "/" . $requestedMovie . "/" . $subtitle['src'] ?>" default>
                     <?php endforeach; ?>
                 <?php endif; ?>
             <?php endif; ?>
@@ -91,7 +93,7 @@ if (!file_exists($poster)){
                 <?php else : ?>
                     <div class="col s12 m6 l8 xl8">
                         <h5><?= $movieInfo['title'] ?> (<?= $movieInfo['year'] ?>)</h5>
-                        <h5><?= $movieInfo['files'][$requestedEpisode]['title']?></h5>
+                        <h5><?= $movieInfo['files'][$requestedEpisode]['title'] ?></h5>
                         <p><?= $movieInfo['description'] ?></p>
                     </div>
                     <div class="col s12 m6 l4 xl 4">
@@ -103,7 +105,8 @@ if (!file_exists($poster)){
                             </li>
 
                             <?php foreach ($movieInfo['files'] as $episode) : ?>
-                                <?php //$dummyIndex++ ?>
+                                <?php //$dummyIndex++ 
+                                ?>
                                 <?php if ($requestedEpisode == $dummyIndex) : ?>
                                     <li class="collection-item grey darken-3">
                                         <div><b><?= $episode['title'] ?></b><a href="#!" class="secondary-content disabled"><i class="material-icons blue-text">play_circle</i></a></div>
@@ -123,6 +126,18 @@ if (!file_exists($poster)){
             </div>
         </div>
     </main>
+    <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+    <script type="text/javascript">
+    var player = videojs('hls-player', {
+            fluid: true,
+            responsive: true
+            // usingNativeControls: false,
+            // nativeControlsForTouch: true,
+        });
+        
+        // player.useNativeControls();
+        player.play();
+    </script>
 </body>
 
 </html>
