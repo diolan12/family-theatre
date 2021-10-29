@@ -9,7 +9,7 @@ use Theatre\Config;
 class Bin
 {
     protected $config;
-    public $version = "1.0.178";
+    public $version = "2.1.178";
     function __construct()
     {
         $this->config = new Config();
@@ -62,6 +62,28 @@ class Bin
         putenv("APP_BASE_URL=$baseUrl");
         $shell = "php -S $address:$port";
         $this->execute($shell);
+    }
+    public function prepare(array $args) {
+        if(isset($args['folder'])) {
+            $folder = $this->config->symlink."/".$args['folder'];
+            $file = $folder."/".$args['folder'].".mp4";
+            $index = $folder."/index.m3u8";
+        }
+        else {
+            echo "\033[01;31m Argument \"folder\" is empty \033[0m \n";
+            return;
+        }
+
+        if (is_file($file)){
+            if (!is_file($index)){
+                echo "\033[01;32m Converting file, please wait... \033[0m \n";
+                $shell = "ffmpeg -i $file -profile:v baseline -level 3.0 -start_number 0 -hls_time 5 -hls_list_size 0 -f hls $index";
+                $this->execute($shell);
+            } else echo "\033[01;32m Video already prepared \033[0m \n";
+        } else {
+            echo "\033[01;31m Error preparing video, check if folder name and filename match or video format is .mp4 \033[0m \n";
+        }
+        
     }
     public function unlink(array $args)
     {
@@ -184,10 +206,14 @@ class Bin
         echo "- version\t\t: Display application version.\n";
         echo "- status\t\t: Display application current status.\n";
         echo "- serve {args}\t\t: Serving the application.\n";
+        echo "- prepare {args}\t: Prepare video to HLS format.\n";
         echo "- index \t\t: Showing list of indexed directories.\n";
         echo "- index {args}\t\t: Indexing a given directory name in argument, then showing list of indexed directories.\n\n";
 
         echo "\033[01;33m List of available arguments: \033[0m \n";
+        echo "- folder={path}\t\t: Use with prepare command to convert video file into HLS format.\n";
+        echo "\t\t\t  Make sure the filename and folder name are match and video format is .mp4\n";
+        echo "\t\t\t  e.g. (php app prepare folder=godzilla_kotm)\n";
         echo "- symlink={path}\t: Use with link command to link the application with video directory.\n";
         echo "\t\t\t  e.g. (php app link symlink=D:\\Videos)\n";
         echo "- folder={dir name}\t: Use with index command to index a video directory.\n";
