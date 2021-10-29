@@ -29,7 +29,7 @@ if(is_dir($symlink)){
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
     <title><?= $appName ?></title>
